@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog_Website</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Blog Articles</h1>
+    <a href="/NewArticle" class="NewArticle">New Article</a>
+    <%articles.forEach((article)=>{%>
+        <div class="container">
+            <h2><%=article.title%></h2>
+            <%let shortArticle=article.content.split(' ').slice(0,50).join(' ')%>
+            <p><%=shortArticle+"..."%></p>
+            <div class="buttons">
+                <a href="/ReadMore/<%=article._id%>" class="ReadMore">Read More</a>
+                <a href="/Edit/<%=article._id%>" class="Edit">Edit</a>
+                <a href="/Delete/<%=article._id%>" class="Delete">Delete</a>
+            </div>
+        </div>
+    <%})%>
+</body>
+</html>
